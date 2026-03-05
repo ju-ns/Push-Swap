@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
+/*   ft_strtim.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/12 09:05:35 by marvin            #+#    #+#             */
-/*   Updated: 2025/09/12 09:05:35 by marvin           ###   ########.fr       */
+/*   Created: 2025/08/04 01:12:14 by marvin            #+#    #+#             */
+/*   Updated: 2025/08/04 01:12:14 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "libft.h"
+#include <stdlib.h>
 
-//SWAP
-static void swap_nodes(t_stack *stack)
+char *ft_strtrim(char const *s1, char const *set)
 {
-    t_node *first;
-    t_node *second;
-
-    if (!stack || stack->size < 2)
-        return;
-    first = stack->top;
-    second = first->next;
-    first ->next = second ->next;
-    second ->top = second;
+    size_t start;
+    size_t end;
+    
+    if(!s1 || !set)
+        return (NULL);
+    start = 0;
+    while(s1[start] && ft_strchr(set, s1[start]))
+        start++;
+    end = ft_strlen(s1);
+    while(end > start && ft_strchr(set, s1[end - 1]))
+        end--;
+    return (ft_substr(s1,start, end - start));
 }
-
-void    sa(t_stack)
