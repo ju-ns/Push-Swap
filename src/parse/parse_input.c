@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_input.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jnogueir <jnogueir@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/25 14:32:27 by jnogueir          #+#    #+#             */
+/*   Updated: 2026/03/25 14:32:31 by jnogueir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 /*
@@ -104,7 +116,6 @@ int parse(int argc, char **argv, s_stack *stack)
         if(!argv[1] || !argv[1][0])
             return (0);
         input = ft_split(argv[1], ' ');
-        //ft_printf("ft_split result: %s\\n", input ? input[0] : "NULL");
         if(!input)
             return (0);
     }     
