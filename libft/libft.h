@@ -17,6 +17,7 @@
 #include <stddef.h> //para usar o size_t
 #include <stdlib.h>
 #include <unistd.h>
+#include <limits.h>
 
 
 //vericação de caracteres
@@ -59,6 +60,7 @@ void ft_putstr_fd(char *str, int fd);
 int ft_atoi(const char *nptr);
 long ft_atol(const char *str);
 char *ft_itoa(int n);
+int	ft_atoi_safe(char *str, long *result);
 
 //Bonus part 
 typedef struct s_list

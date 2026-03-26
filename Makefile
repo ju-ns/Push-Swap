@@ -19,6 +19,7 @@ $(SRC_DIR)/operations/swap_op.c \
 $(SRC_DIR)/operations/rotate_op.c \
 $(SRC_DIR)/operations/reverse_rotate_op.c \
 $(SRC_DIR)/parse/parse_input.c \
+$(SRC_DIR)/utils/prepare_input.c \
 $(SRC_DIR)/sort/calculate_utils.c \
 $(SRC_DIR)/sort/move_utils.c \
 $(SRC_DIR)/sort/sort_utils.c \

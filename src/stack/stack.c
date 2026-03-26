@@ -59,7 +59,7 @@ depois do topo, atualiza a nova posição do topo
 */
 void	push(s_stack *stack, s_node *new_node)
 {
-	if (!stack || new_node)
+	if (!stack || !new_node)
 		return ;
 	if (stack->length == 0)
 	{

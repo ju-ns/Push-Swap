@@ -48,6 +48,16 @@ Parsing do input
 loalizada no diretorio parse
 */
 int	parse(int argc, char **argv, s_stack *stack);
+
+/*
+Utilitárias para o parsing do input
+*/
+char	**get_input(int argc, char **argv);
+int	is_duplicate(s_stack *stack, int value);
+int	is_valid_number(char *str);
+int	process_value(char *str, s_stack *stack);
+void	free_split(char **str);
+
 /*
 Funções utilitárias de calculo para o algoritmo de ordenação
 localizadas no arquivo calculate_utils do diretorio sort
