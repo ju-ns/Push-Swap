@@ -6,7 +6,7 @@
 /*   By: jnogueir <jnogueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 15:34:11 by jnogueir          #+#    #+#             */
-/*   Updated: 2026/03/25 15:44:12 by jnogueir         ###   ########.fr       */
+/*   Updated: 2026/03/29 14:28:07 by jnogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	pb(s_stack *a, s_stack *b)
 {
 	s_node	*top_removed;
 
-	if (!a || !b || !a->length == 0)
+	if (!a || !b || !(a->length == 0))
 		return ;
 	top_removed = pop(b);
 	push(b, top_removed);

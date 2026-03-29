@@ -6,7 +6,7 @@
 /*   By: jnogueir <jnogueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 14:32:27 by jnogueir          #+#    #+#             */
-/*   Updated: 2026/03/25 16:34:49 by jnogueir         ###   ########.fr       */
+/*   Updated: 2026/03/29 14:29:10 by jnogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,13 @@ static	int	process_all_values(char **input, s_stack *stack)
 	return (1);
 }
 
-static	void	conditional_free(char **input, int should_free)
+
+
+/*
+Verifica se o número de input já existe na stack, 
+caso seja uma duplicada retorna 1 caso contrário retorna 0
+*/
+static	int	is_duplicate(s_stack *stack, int value)
 {
 	if (should_free)
 		free_split(input);
