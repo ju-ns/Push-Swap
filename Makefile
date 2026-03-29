@@ -1,16 +1,14 @@
 NAME        = push_swap
 
 CC          = cc
-CFLAGS      = -Wall -Wextra -Werror -g
-INCLUDES    = -Iinclude -Ilibft -Ilibftprintf
+CFLAGS      = -Wall -Wextra -Werror 
+INCLUDES    = -Iinclude -Ilibft
 
 LIBFT_DIR   = libft
 LIBFT       = $(LIBFT_DIR)/libft.a
 
-LIBFTPRINTF_DIR = libft/printf
-LIBFTPRINTF     = $(LIBFTPRINTF_DIR)/libftprintf.a
-
 SRC_DIR     = src
+OBJ_DIR     = obj
 
 SRC         = \
 $(SRC_DIR)/main.c \
@@ -28,33 +26,41 @@ $(SRC_DIR)/sort/small_sorts.c \
 $(SRC_DIR)/sort/quick_select.c \
 $(SRC_DIR)/stack/stack.c
 
-OBJ         = $(SRC:.c=.o)
+OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 
-all: $(LIBFT) $(LIBFTPRINTF) $(NAME)
+all: $(NAME)
 
 $(LIBFT):
-	make -C $(LIBFT_DIR)
+	@echo "Compiling libft..."
+	@$(MAKE) -C $(LIBFT_DIR) --no-print-directory
 
-$(LIBFTPRINTF):
-	make -C $(LIBFTPRINTF_DIR)
+$(NAME): $(OBJ) $(LIBFT)
+	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(INCLUDES) -o $(NAME)
+	@echo "push_swap compiled successfully ✅"
 
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(LIBFTPRINTF) -o $(NAME)
-
-%.o: %.c
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+$(OBJ_DIR)/%.o: %.c 
+	@mkdir -p $(dir $@)
+	@printf "Compiling: %-40s\r" $<
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
-	make -C $(LIBFT_DIR) clean
+	@$(MAKE) -C $(LIBFT_DIR) clean --no-print-directory
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
+	@$(MAKE) -C $(LIBFT_DIR) fclean --no-print-directory
 	rm -f $(NAME)
-	make -C $(LIBFT_DIR) fclean
 
 re: fclean all
 
-debug: CFLAGS += -g
+debug: CFLAGS += -g3
 debug: re
 
-.PHONY: all clean fclean re
+valgrind: debug
+	@valgrind --leak-check=full \
+	         --show-leak-kinds=all \
+	         --track-origins=yes \
+	         --verbose \
+	         ./$(NAME) $(ARGS)
+
+.PHONY: all clean fclean re debug valgrind

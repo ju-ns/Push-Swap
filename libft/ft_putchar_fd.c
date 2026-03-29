@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jnogueir <jnogueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/08 11:36:38 by jnogueir          #+#    #+#             */
-/*   Updated: 2025/08/08 13:22:51 by jnogueir         ###   ########.fr       */
+/*   Created: 2025/08/05 11:23:29 by jnogueir          #+#    #+#             */
+/*   Updated: 2025/08/05 16:12:58 by jnogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
-t_list	*ft_lstlast(t_list *lst)
+void	ft_putchar_fd(char c, int fd)
 {
-	if (!lst)
-		return (NULL);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
+	write(fd, &c, 1);
 }

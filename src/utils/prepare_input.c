@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   prepare_input.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jnogueir <jnogueir@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/29 12:59:18 by jnogueir          #+#    #+#             */
+/*   Updated: 2026/03/29 15:58:51 by jnogueir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 /*
@@ -22,7 +34,7 @@ char	**get_input(int argc, char **argv)
 	{
 		if (!argv[1] || !argv[1][0])
 			return (NULL);
-		return(ft_split(argv[1], ' '));
+		return (ft_split(argv[1], ' '));
 	}
 	return (argv + 1);
 }
@@ -31,9 +43,9 @@ char	**get_input(int argc, char **argv)
 Verifica se o número de input já existe na stack, 
 caso seja uma duplicada retorna 1 caso contrário retorna 0
 */
-int	is_duplicate(s_stack *stack, int value)
+int	is_duplicate(t_stack *stack, int value)
 {
-	s_node	*current;
+	t_node	*current;
 
 	if (!stack)
 		return (0);
@@ -71,19 +83,22 @@ int	is_valid_number(char *str)
 	return (1);
 }
 
-int	process_value(char *str, s_stack *stack)
+/*
+Centraliza as principais validaçoes para o parse
+*/
+int	process_value(char *str, t_stack *stack)
 {
 	long	value;
-	s_node	*node;
+	t_node	*node;
 
-	if(!is_valid_number(str))
+	if (!is_valid_number(str))
 		return (0);
-	if(!ft_atoi_safe(str, &value))
+	if (!ft_atoi_safe(str, &value))
 		return (0);
-	if(is_duplicate(stack, (int)value))
+	if (is_duplicate(stack, (int)value))
 		return (0);
 	node = create_node((int)value);
-	if(!node)
+	if (!node)
 		return (0);
 	push(stack, node);
 	return (1);
