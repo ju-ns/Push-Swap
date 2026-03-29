@@ -35,7 +35,7 @@ void	pb(s_stack *a, s_stack *b)
 {
 	s_node	*top_removed;
 
-	if (!a || !b || !a->length == 0)
+	if (!a || !b)
 		return ;
 	top_removed = pop(b);
 	push(b, top_removed);
