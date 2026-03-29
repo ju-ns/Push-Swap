@@ -6,11 +6,12 @@
 /*   By: jnogueir <jnogueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 14:04:04 by jnogueir          #+#    #+#             */
-/*   Updated: 2026/03/25 14:52:56 by jnogueir         ###   ########.fr       */
+/*   Updated: 2026/03/29 14:24:18 by jnogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 /*
 Inicializa a stack com length 0, top e head null
@@ -68,7 +69,11 @@ int	main(int argc, char **argv)
 	a = malloc(sizeof(s_stack));
 	b = malloc(sizeof(s_stack));
 	if (!a || !b)
-		return (free(a), free(b), 1);
+	{
+		free(a);
+		free(b);
+		return (1);
+	}
 	init_stack(a);
 	init_stack(b);
 	if (!parse(argc, argv, a))
