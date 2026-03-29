@@ -6,7 +6,7 @@
 /*   By: jnogueir <jnogueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/29 12:59:18 by jnogueir          #+#    #+#             */
-/*   Updated: 2026/03/29 14:34:26 by jnogueir         ###   ########.fr       */
+/*   Updated: 2026/03/29 15:58:51 by jnogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ char	**get_input(int argc, char **argv)
 Verifica se o número de input já existe na stack, 
 caso seja uma duplicada retorna 1 caso contrário retorna 0
 */
-int	is_duplicate(s_stack *stack, int value)
+int	is_duplicate(t_stack *stack, int value)
 {
-	s_node	*current;
+	t_node	*current;
 
 	if (!stack)
 		return (0);
@@ -86,10 +86,10 @@ int	is_valid_number(char *str)
 /*
 Centraliza as principais validaçoes para o parse
 */
-int	process_value(char *str, s_stack *stack)
+int	process_value(char *str, t_stack *stack)
 {
 	long	value;
-	s_node	*node;
+	t_node	*node;
 
 	if (!is_valid_number(str))
 		return (0);

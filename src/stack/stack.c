@@ -6,7 +6,7 @@
 /*   By: jnogueir <jnogueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 15:01:37 by jnogueir          #+#    #+#             */
-/*   Updated: 2026/03/29 14:32:24 by jnogueir         ###   ########.fr       */
+/*   Updated: 2026/03/29 15:58:19 by jnogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 Utilitaria: recebe um valor inteiro e cria o nó para adicionar a stack
 retorna o novo nó -> ainda não está conectado a stack
 */
-s_node	*create_node(int value)
+t_node	*create_node(int value)
 {
-	s_node	*new_node;
+	t_node	*new_node;
 
-	new_node = malloc(sizeof(s_node));
+	new_node = malloc(sizeof(t_node));
 	new_node->value = value;
 	new_node->next = NULL;
 	new_node->prev = NULL;
@@ -31,9 +31,9 @@ s_node	*create_node(int value)
 Utilitaria: função clássica da estrutura, remove o topo da stack
 respeitando o LIFO -> retorna o nó que estava no topo
 */
-s_node	*pop(s_stack *stack)
+t_node	*pop(t_stack *stack)
 {
-	s_node	*temp;
+	t_node	*temp;
 
 	if (!stack || stack ->length == 0)
 		return (NULL);
@@ -58,7 +58,7 @@ s_node	*pop(s_stack *stack)
 Utilitaria: função clássica da estrutura, recebe um novo nó e adiciona
 depois do topo, atualiza a nova posição do topo
 */
-void	push(s_stack *stack, s_node *new_node)
+void	push(t_stack *stack, t_node *new_node)
 {
 	if (!stack || !new_node)
 		return ;
@@ -82,10 +82,10 @@ void	push(s_stack *stack, s_node *new_node)
 /*
 Utilitaria: altera a referencia do top, a base da pilha vai para a posiçao do top
 */
-void	rotate(s_stack *stack)
+void	rotate(t_stack *stack)
 {
-	s_node	*old_head;
-	s_node	*old_top;
+	t_node	*old_head;
+	t_node	*old_top;
 
 	if (!stack || stack->length <= 1)
 		return ;
@@ -103,10 +103,10 @@ void	rotate(s_stack *stack)
 Utilitaria: retorna o nó com o menor valor da stack
 */
 
-s_node	*get_min_node(s_stack *stack)
+t_node	*get_min_node(t_stack *stack)
 {
-	s_node	*current;
-	s_node	*min_node;
+	t_node	*current;
+	t_node	*min_node;
 
 	if (!stack)
 		return (NULL);

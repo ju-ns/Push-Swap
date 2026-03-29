@@ -16,7 +16,7 @@
 Função auxiliar -> do_move 
 rotaciona simultaneamente as duas stacks 
 */
-void	rotate_both(s_stack *a, s_stack *b, int *pos_a, int *pos_b)
+void	rotate_both(t_stack *a, t_stack *b, int *pos_a, int *pos_b)
 {
 	while ((*pos_a > 0 && *pos_b > 0)
 		&& *pos_a <= a->length / 2 && *pos_b <= b->length / 2)
@@ -41,7 +41,7 @@ void	rotate_both(s_stack *a, s_stack *b, int *pos_a, int *pos_b)
 Função auxiliar -> do_move 
 rotaciona apenas uma stack  b até que a posição chegue ao top
 */
-void	rotate_b(s_stack *b, int *pos_b)
+void	rotate_b(t_stack *b, int *pos_b)
 {
 	while (*pos_b != 0)
 	{
@@ -64,7 +64,7 @@ void	rotate_b(s_stack *b, int *pos_b)
 Função auxiliar -> do_move
 rotaciona apenas umma stack a até que a posição chegue ao top
 */
-void	rotate_a(s_stack *a, int *pos_a)
+void	rotate_a(t_stack *a, int *pos_a)
 {
 	while (*pos_a != 0)
 	{

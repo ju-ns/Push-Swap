@@ -6,7 +6,7 @@
 /*   By: jnogueir <jnogueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 15:34:11 by jnogueir          #+#    #+#             */
-/*   Updated: 2026/03/29 14:31:40 by jnogueir         ###   ########.fr       */
+/*   Updated: 2026/03/29 15:51:37 by jnogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 Pega o topo da stack b e empurra para o
 topo da stack a
 */
-void	pa(s_stack *a, s_stack *b)
+void	pa(t_stack *a, t_stack *b)
 {
-	s_node	*top_removed;
+	t_node	*top_removed;
 
 	if (!a || !b || b->length == 0)
 		return ;
@@ -31,9 +31,9 @@ void	pa(s_stack *a, s_stack *b)
 Pega o topo da stack a e empura para o
 topo da stack b
 */
-void	pb(s_stack *a, s_stack *b)
+void	pb(t_stack *a, t_stack *b)
 {
-	s_node	*top_removed;
+	t_node	*top_removed;
 
 	if (!a || !b || a->length == 0)
 		return ;

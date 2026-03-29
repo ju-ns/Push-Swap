@@ -6,7 +6,7 @@
 /*   By: jnogueir <jnogueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 14:04:04 by jnogueir          #+#    #+#             */
-/*   Updated: 2026/03/29 14:24:18 by jnogueir         ###   ########.fr       */
+/*   Updated: 2026/03/29 15:59:24 by jnogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@
 /*
 Inicializa a stack com length 0, top e head null
 */
-static	void	init_stack(s_stack *stack)
+static	void	init_stack(t_stack *stack)
 {
 	stack->length = 0;
 	stack->head = NULL;
 	stack->top = NULL;
 }
 
-static void	free_stack(s_stack *stack)
+static void	free_stack(t_stack *stack)
 {
-	s_node	*current;
-	s_node	*temp;
+	t_node	*current;
+	t_node	*temp;
 
 	current = stack->top;
 	while (current)
@@ -40,7 +40,7 @@ static void	free_stack(s_stack *stack)
 /*
 Cleanup utilitario
 */
-static	int	clean_up(s_stack *a, s_stack *b, int exit_code)
+static	int	clean_up(t_stack *a, t_stack *b, int exit_code)
 {
 	free_stack(a);
 	free_stack(b);
@@ -49,7 +49,7 @@ static	int	clean_up(s_stack *a, s_stack *b, int exit_code)
 	return (exit_code);
 }
 
-static void	decision_sort(s_stack *a, s_stack *b)
+static void	decision_sort(t_stack *a, t_stack *b)
 {
 	if (a->length == 2)
 		sa(a);
@@ -63,11 +63,11 @@ static void	decision_sort(s_stack *a, s_stack *b)
 
 int	main(int argc, char **argv)
 {
-	s_stack	*a;
-	s_stack	*b;
+	t_stack	*a;
+	t_stack	*b;
 
-	a = malloc(sizeof(s_stack));
-	b = malloc(sizeof(s_stack));
+	a = malloc(sizeof(t_stack));
+	b = malloc(sizeof(t_stack));
 	if (!a || !b)
 	{
 		free(a);

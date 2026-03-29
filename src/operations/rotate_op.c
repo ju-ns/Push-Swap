@@ -6,7 +6,7 @@
 /*   By: jnogueir <jnogueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 16:18:32 by jnogueir          #+#    #+#             */
-/*   Updated: 2026/03/29 14:24:56 by jnogueir         ###   ########.fr       */
+/*   Updated: 2026/03/29 15:52:09 by jnogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 /*
 Função utilitária da stack para rotacionar o primeiro elemento para o ultimo
 */
-static void	rotate_stack(s_stack *stack)
+static void	rotate_stack(t_stack *stack)
 {
-	s_node	*temp;
+	t_node	*temp;
 
 	if (!stack || stack->length < 2)
 		return ;
@@ -33,7 +33,7 @@ static void	rotate_stack(s_stack *stack)
 /*
 Rotaciona o topo de A para a sua base
 */
-void	ra(s_stack *a)
+void	ra(t_stack *a)
 {
 	if (!a || a->length < 2)
 		return ;
@@ -44,7 +44,7 @@ void	ra(s_stack *a)
 /*
 Rotaciona a base para o top de B
 */
-void	rb(s_stack *b)
+void	rb(t_stack *b)
 {
 	if (!b || b->length < 2)
 		return ;
@@ -55,7 +55,7 @@ void	rb(s_stack *b)
 /*
 Rotaciona as duas stacks ao mesmo tempo
 */
-void	rr(s_stack *a, s_stack *b)
+void	rr(t_stack *a, t_stack *b)
 {
 	rotate_stack(a);
 	rotate_stack(b);

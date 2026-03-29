@@ -16,9 +16,9 @@
 Função principal e responsável por implementar o turk algorithm
 resposável pela ordenação da stack
 */
-void	turk(s_stack *a, s_stack *b)
+void	turk(t_stack *a, t_stack *b)
 {
-	s_node	*node;
+	t_node	*node;
 	int		median;
 
 	while (a->length > 3)

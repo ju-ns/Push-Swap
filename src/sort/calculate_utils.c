@@ -6,7 +6,7 @@
 /*   By: jnogueir <jnogueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/29 14:43:14 by jnogueir          #+#    #+#             */
-/*   Updated: 2026/03/29 14:53:17 by jnogueir         ###   ########.fr       */
+/*   Updated: 2026/03/29 15:56:36 by jnogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 /*
 Função utilitária, calcula a mediana dos valores de uma stack
 */
-int	find_median(s_stack *stack)
+int	find_median(t_stack *stack)
 {
 	int		*arr_stack;
 	int		median;
 	int		i;
-	s_node	*current;
+	t_node	*current;
 
 	arr_stack = malloc(sizeof(int) * stack->length);
 	if (!arr_stack)
@@ -43,9 +43,9 @@ int	find_median(s_stack *stack)
 /*
 Calcula a posição de um nó em uma stack (a distancia em que ele esta do seu topo)
 */
-int	calculate_pos(s_stack *stack, s_node *node)
+int	calculate_pos(t_stack *stack, t_node *node)
 {
-	s_node	*current;
+	t_node	*current;
 	int		pos;
 
 	if (!stack || !node)
@@ -76,7 +76,7 @@ int	ft_max(int value_a, int value_b)
 Calcula quantas operações são necessárias para trazer um elemento 
 de B para o topo e seu target em A para o topo simultaneamente 
 */
-int	calculate_cost(s_stack *a, s_stack *b, s_node *node)
+int	calculate_cost(t_stack *a, t_stack *b, t_node *node)
 {
 	int		pos_a;
 	int		pos_b;

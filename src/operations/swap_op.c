@@ -6,7 +6,7 @@
 /*   By: jnogueir <jnogueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 16:22:07 by jnogueir          #+#    #+#             */
-/*   Updated: 2026/03/29 14:25:23 by jnogueir         ###   ########.fr       */
+/*   Updated: 2026/03/29 15:52:25 by jnogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 Realiza a troca entre os valores dos nós informados como parâmetros
 não altera a estrutura interna da stack
 */
-static	void	swap_nodes(s_node *a, s_node *b)
+static	void	swap_nodes(t_node *a, t_node *b)
 {
 	int	temp;
 
@@ -28,10 +28,10 @@ static	void	swap_nodes(s_node *a, s_node *b)
 /*
 Utilitária para troca dos nós
 */
-static	void	swap_stacks(s_stack *stack)
+static	void	swap_stacks(t_stack *stack)
 {
-	s_node	*top;
-	s_node	*second;
+	t_node	*top;
+	t_node	*second;
 
 	if (!stack || stack->length < 2)
 		return ;
@@ -43,7 +43,7 @@ static	void	swap_stacks(s_stack *stack)
 /*
 Troca os dois primeiros valores do topo da stack a
 */
-void	sa(s_stack *a)
+void	sa(t_stack *a)
 {
 	swap_stacks(a);
 	ft_putstr_fd("sa\n", 1);
@@ -52,7 +52,7 @@ void	sa(s_stack *a)
 /*
 Troca os dois primeiros valores do topo da stack b
 */
-void	sb(s_stack *b)
+void	sb(t_stack *b)
 {
 	swap_stacks(b);
 	ft_putstr_fd("sb\n", 1);
@@ -63,7 +63,7 @@ Realiza ao mesmo tempo a troca entre os dois primeiros
 valores das respectivas stacks:
 "a" e "b"
 */
-void	ss(s_stack *a, s_stack *b)
+void	ss(t_stack *a, t_stack *b)
 {
 	swap_stacks(a);
 	swap_stacks(b);

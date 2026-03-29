@@ -15,9 +15,9 @@
 /*
 Verifica se a stack já está ordenada
 */
-int	is_sorted(s_stack *stack)
+int	is_sorted(t_stack *stack)
 {
-	s_node	*current;
+	t_node	*current;
 
 	if (!stack || !stack->top || stack->length < 2)
 		return (1);
@@ -35,7 +35,7 @@ int	is_sorted(s_stack *stack)
 Função útilitaria -> tem como objetivo tratar casos
  onde o menor nó precisa ser rotacionado até o topo
 */
-static	void	bring_to_top(s_stack *a, s_stack *b, s_node *node)
+static	void	bring_to_top(t_stack *a, t_stack *b, t_node *node)
 {
 	int	pos;
 	int	len;
@@ -56,7 +56,7 @@ static	void	bring_to_top(s_stack *a, s_stack *b, s_node *node)
 }
 
 /*retorna 0 para erro e um para correto utilitaria para sort_three*/
-static	int	validations(s_stack *a, int top, int mid, int head)
+static	int	validations(t_stack *a, int top, int mid, int head)
 {
 	if (top < mid && mid < head)
 		return (0);
@@ -82,7 +82,7 @@ static	int	validations(s_stack *a, int top, int mid, int head)
 /*
 Ordena uma stack com apenas três elementos
 */
-void	sort_three(s_stack *a)
+void	sort_three(t_stack *a)
 {
 	if (!a || a->length != 3)
 		return ;
@@ -93,7 +93,7 @@ void	sort_three(s_stack *a)
 /*
 Ordena uma stack com apenas 5 elementos 
 */
-void	sort_five(s_stack *a, s_stack *b)
+void	sort_five(t_stack *a, t_stack *b)
 {
 	if (is_sorted(a))
 		return ;

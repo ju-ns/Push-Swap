@@ -17,10 +17,10 @@ Recebe um valor de B e precisa encontrar
 onde ele se encaixa em A. 
 Encontra o menor valor maior que o valor de B e retorna esse nó.
 */
-s_node	*find_target(s_stack *a, int value)
+t_node	*find_target(t_stack *a, int value)
 {
-	s_node	*current;
-	s_node	*target;
+	t_node	*current;
+	t_node	*target;
 
 	if (!a || !a->length)
 		return (NULL);
@@ -31,7 +31,7 @@ s_node	*find_target(s_stack *a, int value)
 		if (current->value > value)
 			if (!target || current->value < target->value)
 				target = current;
-			current = current->prev;
+		current = current->prev;
 	}
 	if (!target)
 	{
@@ -50,10 +50,10 @@ s_node	*find_target(s_stack *a, int value)
 Percorre toda a stack  e calcula o menor custo, guarda o nó com o menor custo
 e retorna esse nó no final
 */
-s_node	*best_move(s_stack *a, s_stack *b)
+t_node	*best_move(t_stack *a, t_stack *b)
 {
-	s_node	*current;
-	s_node	*best_node;
+	t_node	*current;
+	t_node	*best_node;
 	int		cost;
 	int		best_cost;
 
@@ -78,11 +78,11 @@ Recebe o nó com o menor custo escolhido pela função
 best_move e executa as operações necessárias 
 para inseri-lo na posição correta em A
 */
-void	do_move(s_stack *a, s_stack *b, s_node *node)
+void	do_move(t_stack *a, t_stack *b, t_node *node)
 {
 	int		pos_b;
 	int		pos_a;
-	s_node	*target_a;
+	t_node	*target_a;
 
 	target_a = find_target(a, node->value);
 	if (!target_a)
@@ -98,7 +98,7 @@ void	do_move(s_stack *a, s_stack *b, s_node *node)
 /*
 Encontra o menor elemento de A e o coloca no top
 */
-void	final_adjust(s_stack *a)
+void	final_adjust(t_stack *a)
 {
 	int	pos;
 
