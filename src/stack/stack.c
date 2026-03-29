@@ -6,7 +6,7 @@
 /*   By: jnogueir <jnogueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 15:01:37 by jnogueir          #+#    #+#             */
-/*   Updated: 2026/03/29 14:26:21 by jnogueir         ###   ########.fr       */
+/*   Updated: 2026/03/29 14:32:24 by jnogueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ s_node	*pop(s_stack *stack)
 	}
 	temp->prev = NULL;
 	temp->next = NULL;
+	stack->length--;
 	return (temp);
 }
 

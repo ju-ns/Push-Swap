@@ -18,11 +18,11 @@ int find_median(s_stack *stack)
     i = 0;
     while(current)
     {
-        arr_stack[i++] = current->value;
+        arr_stack[i++] = current->value; //linha que acusou no loop infinito no debug
         current = current->prev;
     }
     //agora a arr_stack está populada com todos os valores da stack
-    median = quickselect(arr_stack, 0, stack->length, stack->length / 2);
+    median = quickselect(arr_stack, 0, stack->length - 1, (stack->length - 1) / 2);
     free(arr_stack);
     return(median);
 

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   prepare_input.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jnogueir <jnogueir@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/29 12:59:18 by jnogueir          #+#    #+#             */
+/*   Updated: 2026/03/29 14:34:26 by jnogueir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 /*
@@ -22,7 +34,7 @@ char	**get_input(int argc, char **argv)
 	{
 		if (!argv[1] || !argv[1][0])
 			return (NULL);
-		return(ft_split(argv[1], ' '));
+		return (ft_split(argv[1], ' '));
 	}
 	return (argv + 1);
 }
@@ -71,19 +83,22 @@ int	is_valid_number(char *str)
 	return (1);
 }
 
+/*
+Centraliza as principais validaçoes para o parse
+*/
 int	process_value(char *str, s_stack *stack)
 {
 	long	value;
 	s_node	*node;
 
-	if(!is_valid_number(str))
+	if (!is_valid_number(str))
 		return (0);
-	if(!ft_atoi_safe(str, &value))
+	if (!ft_atoi_safe(str, &value))
 		return (0);
-	if(is_duplicate(stack, (int)value))
+	if (is_duplicate(stack, (int)value))
 		return (0);
 	node = create_node((int)value);
-	if(!node)
+	if (!node)
 		return (0);
 	push(stack, node);
 	return (1);

@@ -96,4 +96,8 @@ utilitária para find_median localizada no diretorio sort
 arquivo quickselect
 */
 int	quickselect(int *arr, int low, int higth, int k);
+
+
+
+
 #endif
